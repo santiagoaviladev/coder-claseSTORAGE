@@ -13,6 +13,20 @@
 
 */
 
+const data = JSON.parse(localStorage.getItem("MI_CARRITO"));
+miCarrito= new Carrito([]);
+
+if(!miCarrito)
+{
+  miCarrito= new Carrito([]);
+}
+else{
+  miCarrito= new Carrito(data);
+}
+
+console.log(miCarrito.productos.reduce((acc,element)=>acc+=element.precio,0));
+
+
 function init(){
     escribirBienvenida();
     mostrarMenu();
@@ -133,7 +147,31 @@ function agregarAlCarrito(productId)
   let products = productos.map(el=>el.id);
   let index = products.findIndex(el=>el===productId);
   let product = productos[index];
-  console.log(product);
+  miCarrito.addProducto(product);
+  actualizarCarrito();
+
+
+}
+
+function actualizarCarrito()
+{
+  let contenedor = document.getElementById("carrito");
+  contenedor.innerHTML="";
+  let prods = miCarrito.productos;
+  let nuevoContenedor=document.createElement("div");
+  nuevoContenedor.setAttribute("style", "display:flex;flex-direction:column");
+  prods.forEach(producto=>{
+    let nodoLi = document.createElement("div");
+    nodoLi.innerHTML=`${producto.nombre} - ${producto.precio}<br>`
+    nuevoContenedor.appendChild(nodoLi)
+    
+  })
+
+  contenedor.appendChild(nuevoContenedor);
+  
+  miCarrito.guardar();
+
+
 }
 
 function mostrarCarrito()
@@ -147,6 +185,7 @@ function mostrarCarrito()
     nodoCarrito.innerHTML="<h3>Su Carrito:</h3>";
     contenedor.appendChild(nodoCarrito);
   }
+  actualizarCarrito();
 
   
 }
