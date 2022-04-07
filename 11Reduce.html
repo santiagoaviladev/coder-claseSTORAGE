@@ -2,7 +2,20 @@
 
     let numeros = [1,2,3,4,5,6,7,8,9,10];
     
+    let acumulador=0;
+    for(let i=0;i<numeros.length;i++)
+    {
+        acumulador+=numeros[i];
+    }
+    console.log("RESULTADO CON FOR", acumulador);
 
+    let resultado = numeros.reduce((acc, numero)=>acc+numero,0);
+
+    console.log("RESULTADO CON REDUCE", resultado)
     
-
+    //FUNCION EQUIVALENTE DEL REDUCE:
+    function sumar(resultado, nuevoValor)
+    {
+        return resultado+=nuevoValor;
+    }
 </script>

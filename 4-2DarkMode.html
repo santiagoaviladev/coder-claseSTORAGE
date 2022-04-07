@@ -1,0 +1,42 @@
+<button  id="myBtn">DARK MODE</button>
+<script>
+
+    let color = localStorage.getItem("mode");
+    const myBtn = document.querySelector("#myBtn");
+
+    if(!color) //!color - color===null 
+    {
+        color= "white";
+        myBtn.innerHTML="LIGHT MODE";
+    }
+    else{
+        document.body.style=`background-color:${color}`;
+        if(color==="white")
+        {
+            myBtn.innerHTML="DARK MODE";
+        }
+        else{
+            myBtn.innerHTML="LIGHT MODE";
+        }
+    }
+
+    
+    myBtn.addEventListener("click", ()=>{
+
+        if(color==="white")
+        {
+            color="black"
+            myBtn.innerHTML="LIGHT MODE";
+        }
+        else{
+            color="white";
+            myBtn.innerHTML="DARK MODE";
+        }
+        localStorage.setItem("mode", color);
+        document.body.style=`background-color:${color}`;
+
+    })
+
+
+
+</script>

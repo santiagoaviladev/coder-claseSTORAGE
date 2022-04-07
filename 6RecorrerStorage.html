@@ -1,6 +1,11 @@
 <script>
 
-    
+    for(let i=0;i<localStorage.length;i++)
+    {
+        let key = localStorage.key(i);
+        console.log("LLAVE", key);
+        console.log("VALOR", localStorage.getItem(key));
+    }
 
     
 
