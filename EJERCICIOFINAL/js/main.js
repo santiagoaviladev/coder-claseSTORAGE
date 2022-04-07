@@ -4,6 +4,8 @@
     Agregue la funcionalidad al botón 'Agregar Producto' 
     Ese botón debe agregar el producto al carrito y actualizar la vista 
     Igualmente, debe almacenar en el storage el carrito para el usuario actual
+
+    El carrito debe mostrar el total (reduce)
     
 
    2. 
@@ -119,15 +121,18 @@ function getProductButton(product)
 {
     if(product.stock>0)
     {
-      return `<button class="styledBtn" onclick="agregarAlCarrito(${product})">Agregar al Carrito</button>`
+      return `<button class="styledBtn" onclick="agregarAlCarrito(${product.id})">Agregar al Carrito</button>`
     }
     else{
       return `<button class="notBuyBtn">No Disponible</button>`;
     }
 }
 
-function agregarAlCarrito(product)
+function agregarAlCarrito(productId)
 {
+  let products = productos.map(el=>el.id);
+  let index = products.findIndex(el=>el===productId);
+  let product = productos[index];
   console.log(product);
 }
 
