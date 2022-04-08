@@ -13,9 +13,9 @@
 
 */
 
-const data = JSON.parse(localStorage.getItem("MI_CARRITO"));
+//const data = JSON.parse(localStorage.getItem("MI_CARRITO"));
 miCarrito= new Carrito([]);
-
+/*
 if(!miCarrito)
 {
   miCarrito= new Carrito([]);
@@ -23,8 +23,8 @@ if(!miCarrito)
 else{
   miCarrito= new Carrito(data);
 }
-
-console.log(miCarrito.productos.reduce((acc,element)=>acc+=element.precio,0));
+*/
+//console.log(miCarrito.productos.reduce((acc,element)=>acc+=element.precio,0));
 
 
 function init(){

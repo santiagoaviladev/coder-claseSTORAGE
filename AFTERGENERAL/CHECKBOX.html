@@ -1,0 +1,18 @@
+<input type="checkbox" class="cb"> Opcion 1<br>
+<input type="checkbox" class="cb" > Opcion 2<br>
+<input type="checkbox"  class="cb" > Opcion 3<br>
+<input type="checkbox"  class="cb" > Opcion 4<br>
+
+<script>
+
+    const options = document.querySelectorAll(".cb");
+    for(let option of options)
+    {
+        option.addEventListener("change", ()=>{
+            console.log(option.checked);
+        })
+        
+    }
+
+
+</script>
